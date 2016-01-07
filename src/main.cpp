@@ -36,6 +36,7 @@ int main()
     osg::ref_ptr<osg::Box> box (new osg::Box(osg::Vec3f(7,7,7),14,14,14));
     osg::ref_ptr<osg::ShapeDrawable> boxDrawable (new osg::ShapeDrawable(box.get()));
     boxGeode->addDrawable(boxDrawable.get());
+
 /* Scale Matrix	*/
 
 	// Create transformation node
@@ -84,6 +85,17 @@ int main()
 	osg::ref_ptr<osg::PositionAttitudeTransform> pat4 (new osg::PositionAttitudeTransform);
 	pat4->addChild(patTFigther.get());
 
+/* MATERIAL */
+	float opacity = 0.1f;
+	osg::ref_ptr<osg::StateSet> boxState (boxGeode->getOrCreateStateSet());
+	//Creating the material object for capsule
+	osg::ref_ptr<osg::Material> matBox(new osg::Material);
+	//Specifying the coulour of the object with diffuse material
+	matBox->setTransparency(osg::Material::FRONT, 1.-opacity);
+	//Attaching the newly defined state set object to the node state set
+	boxState->setMode( GL_BLEND, osg::StateAttribute::ON );
+	boxState->setAttributeAndModes(matBox, osg::StateAttribute::OVERRIDE);
+	boxState->setRenderBinDetails(1, "transparent");
 
 /* SCENE GRAPH*/
 
