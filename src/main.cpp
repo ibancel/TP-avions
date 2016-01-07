@@ -31,6 +31,11 @@ int main()
 	osg::ref_ptr<osg::Node> xWing (osgDB::readNodeFile("x-wing/star wars x-wing.3ds"));
 	osg::ref_ptr<osg::Node> tFighter (osgDB::readNodeFile("TF/TF_3DS02.3ds"));
 
+/* Box */
+    osg::ref_ptr<osg::Geode> boxGeode (new osg::Geode);
+    osg::ref_ptr<osg::Box> box (new osg::Box(osg::Vec3f(7,7,7),14,14,14));
+    osg::ref_ptr<osg::ShapeDrawable> boxDrawable (new osg::ShapeDrawable(box.get()));
+    boxGeode->addDrawable(boxDrawable.get());
 /* Scale Matrix	*/
 
 	// Create transformation node
@@ -87,6 +92,7 @@ int main()
 	root->addChild(pat2.get());
 	root->addChild(pat3.get());
 	root->addChild(pat4.get());
+	root->addChild(boxGeode.get());
 
 	// Set the scene data
 	viewer.setSceneData( root.get() );

@@ -16,7 +16,7 @@ void GeneralCallback::operator()(osg::Node* node, osg::NodeVisitor* nv)
         phaseDeJeu();
         precedentTour = t.tick();
     }
-    
+
     deplacementGraphique();
     precedentFrame = t.tick();
 
@@ -27,7 +27,7 @@ void GeneralCallback::deplacementGraphique()
 {
     float dtTour = t.delta_u(precedentTour, t.tick()) / 1000000.0;
     float dtFrame = t.delta_u(precedentFrame, t.tick()) / 1000000.0;
-    
+
     for (int i=0; i< Avion::avions.size(); i++)
     {
 		Avion* avion = Avion::avions[i];
@@ -44,13 +44,13 @@ void GeneralCallback::deplacementGraphique()
 		// Rotation
 		osg::Quat qR;
 		osg::Vec3d dl = osg::Vec3f(x + dx*dtTour, y + dy*dtTour, z + dz*dtTour);
-		osg::Vec3d normale = osg::Vec3d(1,0,0)^dl; 
+		osg::Vec3d normale = osg::Vec3d(1,0,0)^dl;
 		float angle = asin( normale.normalize()/dl.normalize() );
 		qR.makeRotate(angle, normale);
 		patAvions[avion->getId()]->setAttitude(qR);
     }
 }
-    
+
 
 void GeneralCallback::phaseDeJeu()
 {
