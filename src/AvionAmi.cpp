@@ -77,20 +77,23 @@ void AvionAmi::tir() //tir pour l'avion ami
 
 					normeright = sqrt(right.x*right.x+right.y*right.y+right.z*right.z);
 					normesupp = sqrt(SuppVector.x*SuppVector.x+SuppVector.y*SuppVector.y+SuppVector.z*SuppVector.z);
-					normebullet = sqrt(Bullet.x*Bullet.x+Bullet.y*Bullet.y+Bullet.z*Bullet.z);
+					//normebullet = sqrt(Bullet.x*Bullet.x+Bullet.y*Bullet.y+Bullet.z*Bullet.z);
 
-					right.x = right.x/normeright;
-					right.y = right.y/normeright;
-					right.z = right.z/normeright;
-
-					Bullet.x=Bullet.x/normebullet;
-					Bullet.y=Bullet.y/normebullet;
-					Bullet.z=Bullet.z/normebullet;
-
-					SuppVector.x = SuppVector.x/normesupp;
-					SuppVector.y = SuppVector.y/normesupp;
-					SuppVector.z = SuppVector.z/normesupp;
-
+                    /*if (normeright!=0){
+                        right.x = right.x/normeright;
+                        right.y = right.y/normeright;
+                        right.z = right.z/normeright;
+                    }
+                    if (normebullet!=0){
+                        Bullet.x=Bullet.x/normebullet;
+                        Bullet.y=Bullet.y/normebullet;
+                        Bullet.z=Bullet.z/normebullet;
+                    }
+                    if (normesupp!=0){
+                        SuppVector.x = SuppVector.x/normesupp;
+                        SuppVector.y = SuppVector.y/normesupp;
+                        SuppVector.z = SuppVector.z/normesupp;
+                    }*/
 
 					if ((Avion::avions[i]->getX())==(Bullet.x+right.x)&&((Avion::avions[i]->getY())==(Bullet.y+right.y))&&((Avion::avions[i]->getZ())==(Bullet.y+right.y)))
 					{
@@ -134,8 +137,9 @@ void AvionAmi::tir() //tir pour l'avion ami
 
 				}
 			}
-		}
-	}
+        }
+
+    }
 }
 
 void AvionAmi::deplacement()

@@ -95,7 +95,6 @@ int main()
 	//Attaching the newly defined state set object to the node state set
 	boxState->setMode( GL_BLEND, osg::StateAttribute::ON );
 	boxState->setAttributeAndModes(matBox, osg::StateAttribute::OVERRIDE);
-	boxState->setRenderBinDetails(1, "transparent");
 
 /* SCENE GRAPH*/
 

@@ -59,10 +59,10 @@ void GeneralCallback::phaseDeJeu()
 		Avion::avions[i]->deplacement();
 	}
 
-	/*for (unsigned int i = 0; i<Avion::avions.size() ; i++)
+	for (unsigned int i = 0; i<Avion::avions.size() ; i++)
 	{
 		Avion::avions[i]->tir(); //Phase de tir: cette fonction effectuera le tir si besoin
-	}*/
+	}
 	//Retire de la liste si detruit
 	for (unsigned int i = 0; i<Avion::avions.size() ; i++)
 	{
