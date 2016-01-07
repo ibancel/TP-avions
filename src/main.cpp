@@ -33,7 +33,7 @@ int main()
 
 /* Box */
     osg::ref_ptr<osg::Geode> boxGeode (new osg::Geode);
-    osg::ref_ptr<osg::Box> box (new osg::Box(osg::Vec3f(7,7,7),14,14,14));
+    osg::ref_ptr<osg::Box> box (new osg::Box(osg::Vec3f(TAILLE/2.f,TAILLE/2.f,TAILLE/2.f),TAILLE,TAILLE,TAILLE));
     osg::ref_ptr<osg::ShapeDrawable> boxDrawable (new osg::ShapeDrawable(box.get()));
     boxGeode->addDrawable(boxDrawable.get());
 
