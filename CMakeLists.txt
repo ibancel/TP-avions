@@ -12,6 +12,8 @@ file(
         src/*
 )
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
 add_executable( tp_avions ${source_files})
 
 INCLUDE_DIRECTORIES(${OPENSCENEGRAPH_INCLUDE_DIRS} include)
